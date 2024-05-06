@@ -1,0 +1,15 @@
+Arbol de componentes de la aplicacion que vamos a desarrollar sujeta a cambios
+
+App --> App.jsx
+    Header --> Header.jsx
+        Navbar
+            Link*3 (Search, ListaPokemon, Alta)
+        Main
+            Principal : Donde se pintan <section>
+                    Alta -> Formulario
+                    Details -> con detalles <article>
+                (S) Search -> buscar input
+                    Card -> personaje
+                (S) ListaPokemon -> Cards
+                
+        Footer --> Footer.jsx <footer>
