@@ -1,0 +1,14 @@
+@mixin centered-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin shadow ($color) {
+    -webkit-box-shadow: 11px -10px 0px -2px $color;
+    -moz-box-shadow: 11px -10px 0px -2px $color;
+    box-shadow: 11px -10px 0px -2px $color;
+}

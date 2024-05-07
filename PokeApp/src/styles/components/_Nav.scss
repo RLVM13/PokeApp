@@ -1,0 +1,10 @@
+.nav {
+    width: 100%;
+    &>ul {
+        //selectores anidados
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        gap: 50px; //espacio entre ellos
+    }
+}

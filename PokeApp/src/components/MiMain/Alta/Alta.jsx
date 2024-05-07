@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Details from "../Details/Details";
 import todos from '../../../assets/todos.gif'
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
 
 const Alta = () => {
 
@@ -35,16 +41,17 @@ const Alta = () => {
     });
   };
 
-  return <section>
-    <h2>Creación de un nuevo Pokemon</h2>
-    <form onSubmit={handleSubmit}>
+  return <section className="alta">
+    <h2>Creación de un nuevo Pokemon</h2><br />
+    <form onSubmit={handleSubmit} className="alta-form">
       <input type="text" name="nombre" placeholder="Nombre del Pokemon" onChange={handleChange} /> <br />{/* Para mostrar todas las iteraciones por consola */}
       <input type="text" name="base" placeholder="Base de experiencia" onChange={handleChange} /><br />
       <input type="text" name="peso" placeholder="Peso" onChange={handleChange} /><br />
       <input type="url" name="url" placeholder="Url de imagen" onChange={handleChange} /><br />
       {values.nombre && values.base ? //Si se rellenan los campos, aparece boton
-        <button type="submit">Crear pokemon</button>
+        <Button type="submit" variant="contained" endIcon={<SendIcon />}>Crear pokemon</Button>
         : <></>} {/* otra forma de indicar null */}
+        <br />
     </form>
     <ul>
         {pokemons.length != 0 ?
@@ -54,10 +61,10 @@ const Alta = () => {
               name={pokemon.name}
               base={pokemon.base_experience}
               peso={pokemon.weight}
-              /* imagen={pokemon.sprites.front_default} */
+              imagen={pokemon.sprites.front_default}
             />
           )
-          : <img src={todos} className="todos" alt="todos logo" />}
+          : <img src={todos} className="todos" alt="todos logo"/>}
       </ul>
   </section>;
 };

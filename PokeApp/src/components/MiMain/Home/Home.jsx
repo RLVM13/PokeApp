@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import todos from '../../../assets/todos.gif'
+import { useEffect, useState } from 'react';
+import todos from '../../../assets/todos.gif';
 import Details from '../Details/Details';
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+
 
 function Home() {
 
@@ -24,14 +29,14 @@ function Home() {
     alert(`Valor del buscador: ${title}`);
     setpokemonName(e.target.pokemon.value);
     console.log(e.target.pokemon.value);
-    e.target.pokemon.value='';
+    e.target.pokemon.value = '';
   };
 
   useEffect(() => {
     const getPokemons = async () => {
       const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       const data = await resp.json();
-      setPokemons([data]);
+      setPokemons([...pokemons, data]);
       console.log(data);
     }
     getPokemons();
@@ -39,24 +44,26 @@ function Home() {
 
   return (
     <section className="home">
-      <h1>Home</h1>
+      <h1>Home</h1><br />
       <h2>Search Pokemon</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="pokemon" placeholder="Indica el pokemon a buscar" onChange={handleChange} />
         {values.pokemon ?
-          <button type="submit">Buscar</button>
+          <Button type="submit" className='boton-set' variant="contained" endIcon={<SendIcon />}>Buscar</Button>
           : <></>}
       </form><br /><br />
       <ul>
         {pokemons.length != 0 ?
           pokemons.map((pokemon, i) =>
-            <Details
-              key={i}
-              name={pokemon.name}
-              base={pokemon.base_experience}
-              peso={pokemon.weight}
-              /* imagen={pokemon.sprites.front_default} */
-            />
+            <section>
+              <Details
+                key={i}
+                name={pokemon.name}
+                base={pokemon.base_experience}
+                peso={pokemon.weight}
+                /* imagen={pokemon.sprites.front_default} */
+              />
+            </section>
           )
           : <img src={todos} className="todos" alt="todos logo" />}
       </ul>

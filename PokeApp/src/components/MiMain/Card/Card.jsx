@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({ name, url }) { /* ataque, defensa, special */
+function Card({ name, url }) { 
   return (
     <article>
         <h3>{name}</h3>

@@ -1,0 +1,10 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.alta-form{
+    border: 1px solid $cambridge;
+    border-radius: 8px;
+    padding: 16px;
+    @include centered-column;
+    @include shadow ($tangerine);
+}

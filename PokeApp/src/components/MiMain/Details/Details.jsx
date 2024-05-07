@@ -1,14 +1,30 @@
-import React from 'react'
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
-function Details({ name, base, peso, imagen }) { /* ataque, defensa, special */
+export default function Details({ name, base, peso, imagen }) {
   return (
-    <article>
-        <h3>Nombre del Pokemon: {name}</h3>
-        <h4>Base de Experiencia: {base}</h4>
-        <h4>Peso: {peso}</h4>
-        <img src={imagen} alt="{name}"></img>
-    </article>
-  )
+    <Card sx={{ maxWidth: 200 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="80"
+          image={imagen}
+          alt="imagen pokemon"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          Base de Experiencia : {base}<br></br>
+          Peso : {peso}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
 }
-
-export default Details

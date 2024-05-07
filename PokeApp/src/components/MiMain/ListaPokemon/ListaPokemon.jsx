@@ -18,7 +18,7 @@ function ListaPokemon() {
 
   return (
     <section className="listar">
-      <h1>Listado de Pokemons</h1>
+      <h2>Listado de Pokemons</h2><br />
         {pokemons.length != 0 ?
           pokemons.results.map((pokemon, i) =>
             <Card

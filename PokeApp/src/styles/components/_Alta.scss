@@ -1,0 +1,8 @@
+@import '../utils/mixins.scss';
+
+.alta{
+    @include centered-column;
+    &>h2{
+        color:$gamboge;
+    }
+}

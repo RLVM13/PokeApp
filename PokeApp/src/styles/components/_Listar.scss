@@ -1,0 +1,11 @@
+@import '../utils/mixins.scss';
+
+.listar{
+    @include centered-column;
+
+    align-items: baseline;
+    align-content: space-around;
+    &>h2{
+        color:$gamboge;
+    }
+}
